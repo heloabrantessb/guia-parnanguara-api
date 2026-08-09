@@ -1,6 +1,5 @@
-version: '3.8'
-
 services:
+
   db:
     image: postgres:16-alpine
     container_name: guia_parnanguara_db
