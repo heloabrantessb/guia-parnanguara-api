@@ -31,3 +31,15 @@ class LoginResponseOutSchema(Schema):
 
 class ErrorOutSchema(Schema):
     error: str
+
+
+class AtualizarPerfilSchema(Schema):
+    nome: Optional[str] = Field(None, min_length=2, max_length=255)
+    foto_perfil: Optional[str] = None
+    email: Optional[EmailStr] = None
+    senha_atual: Optional[str] = None
+    nova_senha: Optional[str] = Field(None, min_length=6)
+
+
+class MessageOutSchema(Schema):
+    message: str

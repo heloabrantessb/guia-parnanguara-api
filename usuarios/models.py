@@ -18,6 +18,7 @@ class Usuario(AbstractUser):
     foto_perfil = models.CharField(max_length=500, null=True, blank=True)
     criado_em = models.DateTimeField(auto_now_add=True)
     atualizado_em = models.DateTimeField(auto_now=True)
+    desativado_em = models.DateTimeField(null=True, blank=True)
 
     # coloca o email como identificador único do usuário
     USERNAME_FIELD = 'email'
