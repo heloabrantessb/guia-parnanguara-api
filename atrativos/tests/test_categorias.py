@@ -12,7 +12,7 @@ class CategoriaAPITestCase(TestCase):
 
     def test_criar_categoria(self):
         response = self.client.post(
-            "/categorias/",
+            "/v1/categorias/",
             data=json.dumps(self.categoria_data),
             content_type="application/json"
         )
@@ -21,14 +21,14 @@ class CategoriaAPITestCase(TestCase):
 
     def test_listar_categorias(self):
         Categoria.objects.create(**self.categoria_data)
-        response = self.client.get("/categorias/")
+        response = self.client.get("/v1/categorias/")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.json()), 1)
 
     def test_atualizar_categoria(self):
         categoria = Categoria.objects.create(**self.categoria_data)
         response = self.client.patch(
-            f"/categorias/{categoria.id}",
+            f"/v1/categorias/{categoria.id}",
             data=json.dumps({"titulo": "Museus Históricos"}),
             content_type="application/json"
         )
@@ -37,6 +37,6 @@ class CategoriaAPITestCase(TestCase):
 
     def test_deletar_categoria(self):
         categoria = Categoria.objects.create(**self.categoria_data)
-        response = self.client.delete(f"/categorias/{categoria.id}")
+        response = self.client.delete(f"/v1/categorias/{categoria.id}")
         self.assertEqual(response.status_code, 204)
         self.assertEqual(Categoria.objects.count(), 0)

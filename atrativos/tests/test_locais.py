@@ -20,7 +20,7 @@ class LocalAPITestCase(TestCase):
 
     def test_criar_local(self):
         response = self.client.post(
-            "/locais/",
+            "/v1/locais/",
             data=json.dumps(self.local_data),
             content_type="application/json"
         )
@@ -32,25 +32,25 @@ class LocalAPITestCase(TestCase):
     def test_listar_locais(self):
         # Primeiro cria
         self.client.post(
-            "/locais/",
+            "/v1/locais/",
             data=json.dumps(self.local_data),
             content_type="application/json"
         )
-        response = self.client.get("/locais/")
+        response = self.client.get("/v1/locais/")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.json()), 1)
 
     def test_atualizar_local(self):
         # Primeiro cria
         response = self.client.post(
-            "/locais/",
+            "/v1/locais/",
             data=json.dumps(self.local_data),
             content_type="application/json"
         )
         local_id = response.json()["id"]
 
         update_response = self.client.patch(
-            f"/locais/{local_id}",
+            f"/v1/locais/{local_id}",
             data=json.dumps({"nome": "Ilha das Peças"}),
             content_type="application/json"
         )
@@ -60,12 +60,12 @@ class LocalAPITestCase(TestCase):
     def test_deletar_local(self):
         # Primeiro cria
         response = self.client.post(
-            "/locais/",
+            "/v1/locais/",
             data=json.dumps(self.local_data),
             content_type="application/json"
         )
         local_id = response.json()["id"]
 
-        delete_response = self.client.delete(f"/locais/{local_id}")
+        delete_response = self.client.delete(f"/v1/locais/{local_id}")
         self.assertEqual(delete_response.status_code, 204)
         self.assertEqual(Local.objects.count(), 0)

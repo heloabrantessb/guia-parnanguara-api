@@ -20,7 +20,7 @@ class EventoAPITestCase(TestCase):
 
     def test_criar_evento(self):
         response = self.client.post(
-            "/eventos/",
+            "/v1/eventos/",
             data=json.dumps(self.evento_data),
             content_type="application/json"
         )
@@ -31,24 +31,24 @@ class EventoAPITestCase(TestCase):
 
     def test_listar_eventos(self):
         self.client.post(
-            "/eventos/",
+            "/v1/eventos/",
             data=json.dumps(self.evento_data),
             content_type="application/json"
         )
-        response = self.client.get("/eventos/")
+        response = self.client.get("/v1/eventos/")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.json()), 1)
 
     def test_atualizar_evento(self):
         response = self.client.post(
-            "/eventos/",
+            "/v1/eventos/",
             data=json.dumps(self.evento_data),
             content_type="application/json"
         )
         evento_id = response.json()["id"]
 
         update_response = self.client.patch(
-            f"/eventos/{evento_id}",
+            f"/v1/eventos/{evento_id}",
             data=json.dumps({"nome": "Festa de NS do Rocio"}),
             content_type="application/json"
         )
@@ -57,12 +57,12 @@ class EventoAPITestCase(TestCase):
 
     def test_deletar_evento(self):
         response = self.client.post(
-            "/eventos/",
+            "/v1/eventos/",
             data=json.dumps(self.evento_data),
             content_type="application/json"
         )
         evento_id = response.json()["id"]
 
-        delete_response = self.client.delete(f"/eventos/{evento_id}")
+        delete_response = self.client.delete(f"/v1/eventos/{evento_id}")
         self.assertEqual(delete_response.status_code, 204)
         self.assertEqual(Evento.objects.count(), 0)
