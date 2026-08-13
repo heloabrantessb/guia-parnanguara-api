@@ -64,3 +64,18 @@ class Evento(Atrativo):
     class Meta:
         verbose_name = 'Evento'
         verbose_name_plural = 'Eventos'
+
+
+class AtrativoImagem(models.Model):
+    atrativo = models.ForeignKey(Atrativo, on_delete=models.CASCADE, related_name='imagens')
+    imagem = models.ImageField(upload_to='atrativos/')
+    imagem_capa = models.BooleanField(default=False)
+    criado_em = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Imagem do Atrativo'
+        verbose_name_plural = 'Imagens dos Atrativos'
+        ordering = ['-imagem_capa', '-id']
+
+    def __str__(self):
+        return f"Imagem de {self.atrativo.nome}"

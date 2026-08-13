@@ -27,6 +27,19 @@ class CategoriaOutSchema(Schema):
     atualizado_em: datetime
 
 
+class AtrativoImagemOutSchema(Schema):
+    id: int
+    imagem_url: str
+    imagem_capa: bool
+    criado_em: datetime
+
+    @staticmethod
+    def resolve_imagem_url(obj):
+        if obj.imagem:
+            return obj.imagem.url
+        return None
+
+
 class AtrativoBaseInSchema(Schema):
     nome: str = Field(..., min_length=1, max_length=100)
     descricao: str
@@ -59,6 +72,7 @@ class AtrativoBaseOutSchema(Schema):
     ativo: bool
     valor_entrada: Optional[Decimal]
     categorias: List[CategoriaOutSchema]
+    imagens: List[AtrativoImagemOutSchema]
     criado_em: datetime
     atualizado_em: datetime
 
