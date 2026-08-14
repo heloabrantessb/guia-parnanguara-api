@@ -16,6 +16,7 @@ class Usuario(AbstractUser):
         default=FuncaoUsuario.USUARIO,
     )
     foto_perfil = models.CharField(max_length=500, null=True, blank=True)
+    preferencias = models.ManyToManyField('atrativos.Categoria', related_name='usuarios_interessados', blank=True)
     criado_em = models.DateTimeField(auto_now_add=True)
     atualizado_em = models.DateTimeField(auto_now=True)
     desativado_em = models.DateTimeField(null=True, blank=True)
