@@ -8,6 +8,7 @@ from rotas.models import Rota, RotaAtrativo
 class RotasAPITestCase(TestCase):
     def setUp(self):
         self.user1 = Usuario.objects.create_user(
+            username="user1@example.com",
             email="user1@example.com",
             nome="User One",
             password="password123"
@@ -16,6 +17,7 @@ class RotasAPITestCase(TestCase):
         self.auth_headers1 = {"HTTP_AUTHORIZATION": f"Bearer {self.token1}"}
 
         self.user2 = Usuario.objects.create_user(
+            username="user2@example.com",
             email="user2@example.com",
             nome="User Two",
             password="password123"

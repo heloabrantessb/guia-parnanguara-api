@@ -5,6 +5,7 @@ from atrativos.routers.locais import router as locais_router
 from atrativos.routers.eventos import router as eventos_router
 from atrativos.routers.imagens import router as imagens_router
 from rotas.router import router as rotas_router
+from usuarios.router_preferencias import router as preferencias_router
 
 api = NinjaAPI(
     title="PGuaTur API",
@@ -19,5 +20,7 @@ api.add_router("/locais", locais_router)
 api.add_router("/eventos", eventos_router)
 api.add_router("/atrativos", imagens_router)
 api.add_router("/rotas", rotas_router)
+api.add_router("/preferencias", preferencias_router)
+
 
 
