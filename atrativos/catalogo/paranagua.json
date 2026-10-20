@@ -1,0 +1,109 @@
+{
+  "consultado_em": "2026-10-20",
+  "observacoes": "Catálogo inicial de visitação urbana. Durações e janelas diurnas de visita externa são estimativas de planejamento, não horários oficiais de acesso interno. Coordenadas são pontos de referência. Registros existentes são preservados.",
+  "atrativos": [
+    {
+      "nome": "Museu de Arqueologia e Etnologia da UFPR",
+      "descricao": "Sede histórica do museu universitário na antiga construção dos jesuítas, no Centro Histórico. Esta carga propõe contemplação externa do edifício, com janela diurna sugerida das 9h às 18h. A visita interna possui programação própria, de terça a domingo; confirme com o museu antes de entrar. Duração estimada de visita externa: 30 minutos.",
+      "endereco": "Rua XV de Novembro, 575 - Centro Histórico, Paranaguá - PR",
+      "latitude": "-25.52168000", "longitude": "-48.50720400",
+      "horario_abertura": "09:00:00", "horario_fechamento": "18:00:00",
+      "duracao_visita_minutos": 30, "valor_entrada": "0.00",
+      "categorias": ["Histórico", "Patrimônio", "Educacional", "Arquitetura"],
+      "fontes": [
+        {"url": "https://visite.museus.gov.br/instituicoes/museu-de-arqueologia-e-etnologia-mae-universidade-federal-do-parana/", "uso": "Nome, endereço e coordenadas"},
+        {"url": "https://mae.ufpr.br/espacos/", "uso": "Horários de visitação interna"}
+      ]
+    },
+    {
+      "nome": "Mercado Municipal do Café",
+      "descricao": "Mercado histórico com opções de gastronomia regional e arquitetura em ferro. O horário municipal publicado é de segunda a sábado, das 9h às 18h, e domingo, das 9h às 12h. Para gerar roteiros com o horário diário único do aplicativo, usamos a janela conservadora das 9h às 12h. Consumo nos estabelecimentos é pago à parte. Duração estimada: 30 minutos.",
+      "endereco": "Rua General Carneiro - Centro Histórico, Paranaguá - PR",
+      "latitude": "-25.52099500", "longitude": "-48.50618500",
+      "horario_abertura": "09:00:00", "horario_fechamento": "12:00:00",
+      "duracao_visita_minutos": 30, "valor_entrada": "0.00",
+      "categorias": ["Histórico", "Patrimônio", "Gastronomia", "Arquitetura"],
+      "fontes": [
+        {"url": "https://secultur.paranagua.pr.gov.br/item/mercado-municipal-do-cafe/index.html", "uso": "Nome, endereço, descrição e horários"},
+        {"url": "https://programeviagem.com/destinos-de-viagem/destinos-de-viagem-brasil/atracoes-turisticas-do-parana/", "uso": "Coordenadas de referência"}
+      ]
+    },
+    {
+      "nome": "Igreja de Nossa Senhora do Rosário",
+      "descricao": "Catedral histórica de Paranaguá, com fachada de tradição colonial e relevância para a formação da cidade. O roteiro contempla somente observação externa, sem garantir acesso ao interior ou participação em celebrações. Janela diurna sugerida para planejamento: das 9h às 18h. Duração estimada: 20 minutos.",
+      "endereco": "Rua Conselheiro Sinimbú - Centro Histórico, Paranaguá - PR",
+      "latitude": "-25.52173000", "longitude": "-48.50910300",
+      "horario_abertura": "09:00:00", "horario_fechamento": "18:00:00",
+      "duracao_visita_minutos": 20, "valor_entrada": "0.00",
+      "categorias": ["Histórico", "Patrimônio", "Religioso", "Arquitetura"],
+      "fontes": [
+        {"url": "https://secultur.paranagua.pr.gov.br/item/igreja-de-nossa-senhora-do-rosario/index.html", "uso": "Identificação, endereço e contexto"},
+        {"url": "https://programeviagem.com/destinos-de-viagem/destinos-de-viagem-brasil/atracoes-turisticas-do-parana/", "uso": "Coordenadas de referência"}
+      ]
+    },
+    {
+      "nome": "Igreja de São Benedito",
+      "descricao": "Patrimônio religioso associado à história da população negra de Paranaguá e à arquitetura colonial. O roteiro contempla somente a fachada e o entorno público; a entrada no templo depende do funcionamento da comunidade religiosa. Janela diurna sugerida: das 9h às 18h. Duração estimada de visita externa: 20 minutos.",
+      "endereco": "Rua Conselheiro Sinimbú - Centro Histórico, Paranaguá - PR",
+      "latitude": "-25.52292700", "longitude": "-48.51093300",
+      "horario_abertura": "09:00:00", "horario_fechamento": "18:00:00",
+      "duracao_visita_minutos": 20, "valor_entrada": "0.00",
+      "categorias": ["Histórico", "Patrimônio", "Religioso", "Arquitetura"],
+      "fontes": [
+        {"url": "https://secultur.paranagua.pr.gov.br/item/igreja-de-sao-benedito/index.html", "uso": "Identificação, endereço e contexto"},
+        {"url": "https://programeviagem.com/destinos-de-viagem/destinos-de-viagem-brasil/atracoes-turisticas-do-parana/", "uso": "Coordenadas de referência"}
+      ]
+    },
+    {
+      "nome": "Fonte Velha (Fontinha)",
+      "descricao": "Antiga fonte de abastecimento de Paranaguá, também conhecida como Fontinha ou Fonte da Camboa. A proposta é conhecer externamente o patrimônio e seu entorno, sem acesso a galerias e sem indicação de consumo da água. Janela diurna sugerida: das 9h às 18h. Duração estimada: 15 minutos.",
+      "endereco": "Praça Pires Padrinho - Ponta do Cajú, Paranaguá - PR",
+      "latitude": "-25.52405500", "longitude": "-48.51109400",
+      "horario_abertura": "09:00:00", "horario_fechamento": "18:00:00",
+      "duracao_visita_minutos": 15, "valor_entrada": "0.00",
+      "categorias": ["Histórico", "Patrimônio", "Ao ar livre"],
+      "fontes": [
+        {"url": "https://secultur.paranagua.pr.gov.br/item/fonte-velha-fontinha/index.html", "uso": "Identificação, localização e contexto"},
+        {"url": "https://programeviagem.com/destinos-de-viagem/destinos-de-viagem-brasil/atracoes-turisticas-do-parana/", "uso": "Coordenadas de referência"}
+      ]
+    },
+    {
+      "nome": "Passarela da Ilha dos Valadares",
+      "descricao": "Ligação para pedestres entre o continente e a Ilha dos Valadares, com vista para o Rio Itiberê. A parada propõe contemplação do rio e do acesso à ilha, sem incluir trajetos de barco nem passeios no interior da ilha. Janela diurna sugerida para planejamento: das 9h às 18h. Duração estimada: 20 minutos.",
+      "endereco": "Passarela Antônio José Santana - acesso à Ilha dos Valadares, Paranaguá - PR",
+      "latitude": "-25.52610800", "longitude": "-48.50462600",
+      "horario_abertura": "09:00:00", "horario_fechamento": "18:00:00",
+      "duracao_visita_minutos": 20, "valor_entrada": "0.00",
+      "categorias": ["Ao ar livre", "Paisagens"],
+      "fontes": [
+        {"url": "https://programeviagem.com/destinos-de-viagem/destinos-de-viagem-brasil/atracoes-turisticas-do-parana/", "uso": "Identificação, endereço e coordenadas de referência"}
+      ]
+    },
+    {
+      "nome": "Santuário Estadual de Nossa Senhora do Rocio",
+      "descricao": "Referência de devoção à padroeira do Paraná, no bairro do Rocio. Esta parada contempla a fachada e o entorno externo, sem garantir entrada no templo ou participação em celebrações. Janela diurna sugerida: das 9h às 18h. Duração estimada de visita externa: 30 minutos.",
+      "endereco": "Praça da Fé - Rocio, Paranaguá - PR",
+      "latitude": "-25.50692200", "longitude": "-48.53102900",
+      "horario_abertura": "09:00:00", "horario_fechamento": "18:00:00",
+      "duracao_visita_minutos": 30, "valor_entrada": "0.00",
+      "categorias": ["Histórico", "Patrimônio", "Religioso", "Arquitetura"],
+      "fontes": [
+        {"url": "https://secultur.paranagua.pr.gov.br/item/santuario-estadual-de-nossa-senhora-do-rocio/index.html", "uso": "Identificação, localização e contexto"},
+        {"url": "https://programeviagem.com/destinos-de-viagem/destinos-de-viagem-brasil/atracoes-turisticas-do-parana/", "uso": "Coordenadas de referência"}
+      ]
+    },
+    {
+      "nome": "Estação Ferroviária de Paranaguá",
+      "descricao": "Edifício ferroviário histórico ligado à ferrovia Paranaguá–Curitiba. O roteiro contempla observação externa da arquitetura; não inclui visita interna, acesso aos trilhos nem viagem de trem. Janela diurna sugerida: das 9h às 18h. Duração estimada de visita externa: 20 minutos.",
+      "endereco": "Avenida Arthur de Abreu - Centro Histórico, Paranaguá - PR",
+      "latitude": "-25.51674000", "longitude": "-48.50645000",
+      "horario_abertura": "09:00:00", "horario_fechamento": "18:00:00",
+      "duracao_visita_minutos": 20, "valor_entrada": "0.00",
+      "categorias": ["Histórico", "Patrimônio", "Arquitetura"],
+      "fontes": [
+        {"url": "https://secultur.paranagua.pr.gov.br/item/estacao-ferroviaria-fechado-para-visitacao-interna/index.html", "uso": "Identificação, endereço e contexto"},
+        {"url": "https://mapcarta.com/W625779932", "uso": "Coordenadas de referência; dados dos colaboradores OpenStreetMap sob ODbL: https://www.openstreetmap.org/copyright"}
+      ]
+    }
+  ]
+}
