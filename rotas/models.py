@@ -7,6 +7,9 @@ class Rota(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='rotas')
     titulo = models.CharField(max_length=255)
     criado_em = models.DateTimeField(auto_now_add=True)
+    tempo_disponivel_minutos = models.PositiveIntegerField(null=True, blank=True)
+    duracao_estimada_minutos = models.PositiveIntegerField(null=True, blank=True)
+    inicio_em = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         ordering = ['-id']
@@ -21,6 +24,11 @@ class RotaAtrativo(models.Model):
     rota = models.ForeignKey(Rota, on_delete=models.CASCADE, related_name='itens')
     atrativo = models.ForeignKey(Atrativo, on_delete=models.CASCADE, related_name='rotas')
     ordem = models.PositiveIntegerField()
+    chegada_em = models.DateTimeField(null=True, blank=True)
+    saida_em = models.DateTimeField(null=True, blank=True)
+    deslocamento_minutos = models.PositiveIntegerField(null=True, blank=True)
+    espera_minutos = models.PositiveIntegerField(null=True, blank=True)
+    duracao_visita_minutos = models.PositiveIntegerField(null=True, blank=True)
 
     class Meta:
         ordering = ['ordem']
