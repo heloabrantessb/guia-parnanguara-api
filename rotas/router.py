@@ -4,15 +4,26 @@ from django.db import transaction
 from usuarios.auth import JWTAuth
 from atrativos.models import Atrativo
 from rotas.models import Rota, RotaAtrativo
+from rotas.geracao import ErroGeracaoRota, gerarRoteiro, limparEstimativas
 from rotas.schemas import (
     RotaInSchema,
     RotaOutSchema,
     RotaPatchSchema,
     AdicionarAtrativoSchema,
     ErrorSchema,
+    GerarRotaSchema,
 )
 
 router = Router(tags=["Roteiros"], auth=JWTAuth())
+
+
+@router.post("/gerar", response={201: RotaOutSchema, 400: ErrorSchema})
+def gerar_rota(request, payload: GerarRotaSchema):
+    try:
+        rota = gerarRoteiro(request.user, payload)
+    except ErroGeracaoRota as erro:
+        return 400, {"error": str(erro)}
+    return 201, rota
 
 
 @router.post("/", response={201: RotaOutSchema, 400: ErrorSchema})
@@ -97,11 +108,14 @@ def add_atrativo_to_rota(request, rota_id: int, payload: AdicionarAtrativoSchema
     if RotaAtrativo.objects.filter(rota=rota, atrativo=atrativo).exists():
         return 400, {"error": "Atrativo já cadastrado neste roteiro"}
 
-    RotaAtrativo.objects.create(
-        rota=rota,
-        atrativo=atrativo,
-        ordem=payload.ordem
-    )
+    with transaction.atomic():
+        RotaAtrativo.objects.create(
+            rota=rota,
+            atrativo=atrativo,
+            ordem=payload.ordem
+        )
+        if rota.inicio_em is not None:
+            limparEstimativas(rota)
     return 201, rota
 
 
@@ -128,5 +142,7 @@ def remove_atrativo_from_rota(request, rota_id: int, atrativo_id: int):
             if elem.ordem != index:
                 elem.ordem = index
                 elem.save()
+        if rota.inicio_em is not None:
+            limparEstimativas(rota)
 
     return 200, rota
