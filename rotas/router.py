@@ -15,9 +15,23 @@ from rotas.schemas import (
 router = Router(tags=["Roteiros"], auth=JWTAuth())
 
 
-@router.post("/", response={201: RotaOutSchema})
+@router.post("/", response={201: RotaOutSchema, 400: ErrorSchema})
 def create_rota(request, payload: RotaInSchema):
-    rota = Rota.objects.create(usuario=request.user, titulo=payload.titulo)
+    titulo = payload.titulo.strip()
+    if not titulo:
+        return 400, {"error": "Informe um nome para o roteiro."}
+    if len(payload.atrativo_ids) != len(set(payload.atrativo_ids)):
+        return 400, {"error": "Selecione cada atrativo apenas uma vez."}
+
+    with transaction.atomic():
+        atrativos = list(Atrativo.objects.filter(id__in=payload.atrativo_ids, ativo=True))
+        if len(atrativos) != len(payload.atrativo_ids):
+            return 400, {"error": "Um ou mais atrativos não estão disponíveis."}
+        rota = Rota.objects.create(usuario=request.user, titulo=titulo)
+        RotaAtrativo.objects.bulk_create([
+            RotaAtrativo(rota=rota, atrativo_id=atrativoId, ordem=indice + 1)
+            for indice, atrativoId in enumerate(payload.atrativo_ids)
+        ])
     return 201, rota
 
 
