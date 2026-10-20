@@ -48,6 +48,7 @@ class AtrativoBaseInSchema(Schema):
     longitude: Decimal
     ativo: bool = True
     valor_entrada: Optional[Decimal] = None
+    duracao_visita_minutos: int = Field(30, ge=1, le=1440)
     categoria_ids: List[int] = Field(default_factory=list)
 
 
@@ -60,6 +61,7 @@ class AtrativoBasePatchSchema(Schema):
     ativo: Optional[bool] = None
     valor_entrada: Optional[Decimal] = None
     categoria_ids: Optional[List[int]] = None
+    duracao_visita_minutos: int = Field(None, ge=1, le=1440)
 
 
 class AtrativoBaseOutSchema(Schema):
@@ -70,6 +72,7 @@ class AtrativoBaseOutSchema(Schema):
     latitude: Decimal
     longitude: Decimal
     ativo: bool
+    duracao_visita_minutos: int
     valor_entrada: Optional[Decimal]
     categorias: List[CategoriaOutSchema]
     imagens: List[AtrativoImagemOutSchema]

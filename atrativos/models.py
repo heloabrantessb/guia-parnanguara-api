@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class TipoCategoria(models.TextChoices):
@@ -34,6 +35,9 @@ class Atrativo(models.Model):
     latitude = models.DecimalField(max_digits=11, decimal_places=8)
     longitude = models.DecimalField(max_digits=11, decimal_places=8)
     ativo = models.BooleanField(default=True)
+    duracao_visita_minutos = models.PositiveIntegerField(
+        default=30, validators=[MinValueValidator(1), MaxValueValidator(1440)]
+    )
     valor_entrada = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     categorias = models.ManyToManyField(Categoria, related_name='atrativos', blank=True)
     criado_em = models.DateTimeField(auto_now_add=True)
